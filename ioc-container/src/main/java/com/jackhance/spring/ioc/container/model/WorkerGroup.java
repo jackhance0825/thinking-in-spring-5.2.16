@@ -2,17 +2,15 @@ package com.jackhance.spring.ioc.container.model;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ObjectFactory;
-import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
 
 import java.util.Arrays;
 
 /**
- * 劳动者组
+ * 工人组
  *
  * @author jackhance
- * @date 2021/8/17 0:36
+ * @mail jackhance0825@163.com
  */
 public class WorkerGroup {
 
@@ -21,8 +19,6 @@ public class WorkerGroup {
     private Environment environment;
 
     private ObjectFactory<BeanFactory> beanFactoryObjectFactory;
-
-    private ObjectProvider<ApplicationContext> applicationContextObjectProvider;
 
     public Worker[] getWorkers() {
         return workers;
@@ -48,11 +44,12 @@ public class WorkerGroup {
         this.beanFactoryObjectFactory = beanFactoryObjectFactory;
     }
 
-    public ObjectProvider<ApplicationContext> getApplicationContextObjectProvider() {
-        return applicationContextObjectProvider;
-    }
-
-    public void setApplicationContextObjectProvider(ObjectProvider<ApplicationContext> applicationContextObjectProvider) {
-        this.applicationContextObjectProvider = applicationContextObjectProvider;
+    @Override
+    public String toString() {
+        return "WorkerGroup{" +
+                "workers=" + Arrays.toString(workers) +
+                ", environment=" + environment +
+                ", beanFactoryObjectFactory=" + beanFactoryObjectFactory +
+                '}';
     }
 }

@@ -1,11 +1,10 @@
 package com.jackhance.spring.ioc.container.model;
 
 /**
- * 劳动者
+ * 工人
  *
  * @author jackhance
- * @date 2021/8/16 23:53
- * @Description 劳动者POJO
+ * @mail jackhance0825@163.com
  */
 public class Worker {
     private String id;

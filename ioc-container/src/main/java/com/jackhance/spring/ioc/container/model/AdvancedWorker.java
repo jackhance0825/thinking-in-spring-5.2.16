@@ -3,10 +3,10 @@ package com.jackhance.spring.ioc.container.model;
 import com.jackhance.spring.ioc.container.annotation.Advanced;
 
 /**
- * 高级工人
+ * 新生代工人
  *
  * @author jackhance
- * @date 2021/8/17 0:08
+ * @mail jackhance0825@163.com
  */
 @Advanced
 public class AdvancedWorker extends Worker{

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 依赖查找 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -10,11 +12,15 @@
         <property name="age" value="25"/>
     </bean>
 
-    <bean id="advancedWorker" class="com.jackhance.spring.ioc.container.model.AdvancedWorker"
-          parent="worker"  primary="true" >
+    <!--
+        parent： 继承 worker 的属性
+        primary： 根据类型 Worker 获取单个时，存在多个时，通过 primary=true 指定返回哪个，只允许有且仅有一个
+     -->
+    <bean id="advancedWorker" class="com.jackhance.spring.ioc.container.model.AdvancedWorker" parent="worker"  primary="true" >
         <property name="hobby" value="coding"/>
     </bean>
 
+    <!-- FactoryBean 的方式定义bean -->
     <bean id="myServiceFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
         <property name="targetBeanName" value="worker"/>
     </bean>
