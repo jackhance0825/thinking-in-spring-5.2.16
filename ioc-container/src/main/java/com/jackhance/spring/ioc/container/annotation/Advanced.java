@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * 标注高级
  *
  * @author jackhance
- * @date 2021/8/17 0:31
+ * @mail jackhance0825@163.com
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
