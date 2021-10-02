@@ -10,7 +10,10 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!-- ioc 容器 -->
         <module>ioc-container</module>
+        <!-- bean 详解 -->
+        <module>bean</module>
     </modules>
 
     <properties>
@@ -55,6 +58,18 @@
 
     <!-- Spring 依赖 -->
     <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
         <!-- Spring IoC 核心依赖 -->
         <dependency>
             <groupId>org.springframework</groupId>

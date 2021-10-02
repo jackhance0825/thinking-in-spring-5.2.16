@@ -41,6 +41,15 @@ public class Worker {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", hash=" + hashCode() +
                 '}';
+    }
+
+    public static Worker generateWorker() {
+        Worker worker = new Worker();
+        worker.setId("9527");
+        worker.setName("jackhance");
+        worker.setAge(30);
+        return worker;
     }
 }

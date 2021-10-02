@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1. 构造器 -->
+    <bean id="worker-factory" class="com.jackhance.spring.ioc.bean.model.GenericWorkerFactory"/>
+
+    <bean id="worker-create-by-xml-constructor" class="com.jackhance.spring.ioc.container.model.Worker">
+        <property name="id" value="pc9527"/>
+        <property name="name" value="jackhance"/>
+        <property name="age" value="30"/>
+    </bean>
+
+    <!-- 2. 静态方法实例化 -->
+    <bean id="worker-create-by-xml-static-method" class="com.jackhance.spring.ioc.container.model.Worker" factory-method="generateWorker"/>
+
+    <!-- 3. 工厂方法实例化 -->
+    <bean id="worker-create-by-xml-factory-method" factory-bean="worker-factory" factory-method="createWorker"/>
+
+    <!-- 4. FactoryBean 实例化 -->
+    <bean id="worker-create-by-xml-factory-bean" class="com.jackhance.spring.ioc.bean.model.WorkerFactoryBean" />
+
+    <!-- 5. ServiceLoader -->
+    <bean id="workerFactoryServiceLoader" class="org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean">
+        <property name="serviceType" value="com.jackhance.spring.ioc.bean.model.WorkerFactory" />
+    </bean>
+
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="worker-factory-by-xml-lazy" class="com.jackhance.spring.ioc.bean.model.GenericWorkerFactory"
+        init-method="doInit"
+        destroy-method="doDestroy"
+        lazy-init="true" />
+
+    <bean id="worker-factory-by-xml-non-lazy" class="com.jackhance.spring.ioc.bean.model.GenericWorkerFactory"
+          init-method="doInit"
+          destroy-method="doDestroy"/>
+
+</beans>
