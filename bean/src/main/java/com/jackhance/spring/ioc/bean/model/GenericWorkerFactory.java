@@ -12,7 +12,6 @@ import javax.annotation.PreDestroy;
  *
  * @author jackhance
  * @mail jackhance0825@163.com
- * @date 2021/9/28 23:47
  */
 public class GenericWorkerFactory implements WorkerFactory, InitializingBean, DisposableBean, BeanNameAware {
 

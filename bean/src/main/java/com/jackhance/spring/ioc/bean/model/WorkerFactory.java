@@ -7,7 +7,6 @@ import com.jackhance.spring.ioc.container.model.Worker;
  *
  * @author jackhance
  * @mail jackhance0825@163.com
- * @date 2021/9/28 23:46
  */
 public interface WorkerFactory {
 

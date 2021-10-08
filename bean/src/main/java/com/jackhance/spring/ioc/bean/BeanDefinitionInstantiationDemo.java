@@ -19,7 +19,6 @@ import static org.springframework.beans.factory.config.AutowireCapableBeanFactor
  *
  * @author jackhance
  * @mail jackhance0825@163.com
- * @date 2021/9/29 0:18
  */
 public class BeanDefinitionInstantiationDemo {
 
@@ -34,32 +33,14 @@ public class BeanDefinitionInstantiationDemo {
 
         applicationContext.refresh();
 
-        System.out.println("================================= ServiceLoaderFactoryBean ==============================");
+        // 通过 ServiceLoaderFactoryBean 实例化 Bean
+        instantiationByServiceLoaderFactoryBean(applicationContext);
 
-        // 5. ServiceLoaderFactoryBean
-        ServiceLoader serviceLoader = applicationContext.getBean("workerFactoryServiceLoader", ServiceLoader.class);
+        // 通过 ServiceLoader # load 实例化 Bean
+        instantiationByServiceLoader();
 
-        for (Iterator<WorkerFactory> it = serviceLoader.iterator(); it.hasNext(); ) {
-            WorkerFactory workerFactory = it.next();
-            System.out.println("ServiceLoader : " + workerFactory.createWorker());
-        }
-
-        System.out.println("====================== ServiceLoader # load =========================================");
-
-        serviceLoader = ServiceLoader.load(WorkerFactory.class);
-
-        for (Iterator<WorkerFactory> it = serviceLoader.iterator(); it.hasNext(); ) {
-            WorkerFactory workerFactory = it.next();
-            System.out.println("ServiceLoader : " + workerFactory.createWorker());
-        }
-
-        System.out.println("============================ AutowireCapableBeanFactory # createBean ===================================");
-
-        // 6. AutowireCapableBeanFactory # createBean
-        AutowireCapableBeanFactory beanFactory = applicationContext.getAutowireCapableBeanFactory();
-        WorkerFactory workerFactory = (WorkerFactory) beanFactory.createBean(GenericWorkerFactory.class, AUTOWIRE_BY_TYPE, true);
-
-        System.out.println(workerFactory);
+        // 通过 AutowireCapableBeanFactory # createBean 实例化 Bean
+        instantionByAutowireCapableBeanFactory(applicationContext);
 
         System.out.println("===============================================================");
 
@@ -68,6 +49,46 @@ public class BeanDefinitionInstantiationDemo {
         }
 
         applicationContext.close();
+    }
+
+    /**
+     * 6. 通过 AutowireCapableBeanFactory # createBean 实例化 Bean
+     */
+    private static void instantionByAutowireCapableBeanFactory(AnnotationConfigApplicationContext applicationContext) {
+        System.out.println("============================ AutowireCapableBeanFactory # createBean ===================================");
+
+        AutowireCapableBeanFactory beanFactory = applicationContext.getAutowireCapableBeanFactory();
+        WorkerFactory workerFactory = (WorkerFactory) beanFactory.createBean(GenericWorkerFactory.class, AUTOWIRE_BY_TYPE, true);
+
+        System.out.println(workerFactory);
+    }
+
+    /**
+     * 通过 ServiceLoader # load 实例化 Bean
+     */
+    private static void instantiationByServiceLoader() {
+        System.out.println("====================== ServiceLoader # load =========================================");
+
+        ServiceLoader serviceLoader = ServiceLoader.load(WorkerFactory.class);
+
+        for (Iterator<WorkerFactory> it = serviceLoader.iterator(); it.hasNext(); ) {
+            WorkerFactory workerFactory = it.next();
+            System.out.println("ServiceLoader : " + workerFactory.createWorker());
+        }
+    }
+
+    /**
+     * 5. 通过 ServiceLoaderFactoryBean 实例化 Bean
+     */
+    private static void instantiationByServiceLoaderFactoryBean(AnnotationConfigApplicationContext applicationContext) {
+        System.out.println("================================= ServiceLoaderFactoryBean ==============================");
+
+        ServiceLoader serviceLoader = applicationContext.getBean("workerFactoryServiceLoader", ServiceLoader.class);
+
+        for (Iterator<WorkerFactory> it = serviceLoader.iterator(); it.hasNext(); ) {
+            WorkerFactory workerFactory = it.next();
+            System.out.println("ServiceLoader : " + workerFactory.createWorker());
+        }
     }
 
     @Bean(name = "worker-create-by-annotated-constructor")

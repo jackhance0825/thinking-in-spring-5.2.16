@@ -3,7 +3,6 @@ package com.jackhance.spring.ioc.bean;
 import com.jackhance.spring.ioc.bean.model.GenericWorkerFactory;
 import com.jackhance.spring.ioc.bean.model.WorkerFactory;
 import com.jackhance.spring.ioc.container.model.Worker;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.SingletonBeanRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Component;
  *
  * @author jackhance
  * @mail jackhance0825@163.com
- * @date 2021/9/27 23:30
  */
 @Import(BeanDefinitionRegisterDemo.Config.class) // 3. 通过 @Import 来进行导入
 public class BeanDefinitionRegisterDemo {

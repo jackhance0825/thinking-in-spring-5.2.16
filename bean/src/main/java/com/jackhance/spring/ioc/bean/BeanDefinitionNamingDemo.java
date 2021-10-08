@@ -1,14 +1,11 @@
 package com.jackhance.spring.ioc.bean;
 
 import com.jackhance.spring.ioc.container.model.Worker;
-import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,7 +13,6 @@ import org.springframework.stereotype.Component;
  *
  * @author jackhance
  * @mail jackhance0825@163.com
- * @date 2021/9/27 22:20
  */
 public class BeanDefinitionNamingDemo {
 

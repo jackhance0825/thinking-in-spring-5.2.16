@@ -11,7 +11,6 @@ import org.springframework.beans.factory.support.GenericBeanDefinition;
  *
  * @author jackhance
  * @mail jackhance0825@163.com
- * @date 2021/9/25 15:44
  */
 public class BeanDefinitionDemo {
 

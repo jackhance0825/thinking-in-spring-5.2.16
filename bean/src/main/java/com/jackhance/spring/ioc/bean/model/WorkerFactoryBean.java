@@ -8,7 +8,6 @@ import org.springframework.beans.factory.FactoryBean;
  *
  * @author jackhance
  * @mail jackhance0825@163.com
- * @date 2021/9/29 0:13
  */
 public class WorkerFactoryBean implements FactoryBean {
     @Override
