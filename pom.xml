@@ -17,6 +17,7 @@
         <module>bean</module>
         <module>ioc-container</module>
         <module>ioc-dependency-lookup</module>
+        <module>ioc-dependency-injection</module>
     </modules>
 
     <!-- Spring 依赖管理 -->
