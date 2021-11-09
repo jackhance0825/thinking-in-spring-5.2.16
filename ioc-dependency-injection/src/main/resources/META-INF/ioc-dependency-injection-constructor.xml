@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="simpleWorker" class="com.jackhance.spring.ioc.dependency.injection.model.Worker">
+        <property name="id" value="1"/>
+        <property name="name" value="jackhance-01"/>
+        <property name="age" value="25"/>
+    </bean>
+
+    <bean id="primaryWorker" class="com.jackhance.spring.ioc.dependency.injection.model.Worker" primary="true" >
+        <property name="id" value="2"/>
+        <property name="name" value="jackhance-02"/>
+        <property name="age" value="25"/>
+    </bean>
+
+    <bean id="worker" class="com.jackhance.spring.ioc.dependency.injection.model.Worker">
+        <property name="id" value="3"/>
+        <property name="name" value="jackhance-03"/>
+        <property name="age" value="25"/>
+    </bean>
+
+    <!-- 通过 constructor 方法注入 worker -->
+    <bean id="workerHolder" class="com.jackhance.spring.ioc.dependency.injection.model.WorkerHolder">
+        <constructor-arg name="worker" ref="simpleWorker"/>
+    </bean>
+
+    <!-- 通过 constructor 方法 constructor 方式自动注入, 存在多个时，注入标注 primary 的 Bean -->
+    <bean id="workerHolderByConstructor" class="com.jackhance.spring.ioc.dependency.injection.model.WorkerHolder" autowire="constructor"/>
+</beans>
