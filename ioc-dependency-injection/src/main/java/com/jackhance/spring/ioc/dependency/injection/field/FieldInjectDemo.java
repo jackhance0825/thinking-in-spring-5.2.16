@@ -20,19 +20,19 @@ import javax.inject.Inject;
 public class FieldInjectDemo {
 
     /**
-     * @Autowired 方式依赖注入
+     * {@link Autowired} 方式依赖注入
      */
     @Autowired
     private WorkerHolder workerHolder1;
 
     /**
-     * @Resource 方式依赖注入
+     * {@link Resource} 方式依赖注入
      */
     @Resource
     private WorkerHolder workerHolder2;
 
     /**
-     * @Inject 方式依赖注入
+     * {@link Inject} 方式依赖注入
      */
     @Inject
     private WorkerHolder workerHolder3;

@@ -28,7 +28,7 @@ public class MethodInjectDemo {
     private WorkerHolder workerHolder3;
 
     /**
-     * @Autowired 方式依赖注入
+     * {@link Autowired} 方式依赖注入
      */
     @Autowired
     public void init1(Worker worker) {
@@ -36,7 +36,7 @@ public class MethodInjectDemo {
     }
 
     /**
-     * @Resource 方式依赖注入
+     * {@link Resource} 方式依赖注入
      */
     @Resource
     public void init2(Worker worker) {
@@ -44,7 +44,7 @@ public class MethodInjectDemo {
     }
 
     /**
-     * @Inject 方式依赖注入
+     * {@link Inject} 方式依赖注入
      */
     @Inject
     public void init3(Worker worker) {
@@ -52,7 +52,7 @@ public class MethodInjectDemo {
     }
 
     /**
-     * @Bean 方式依赖注入，并注册 workerHolder 实例到 Spring 容器
+     * {@link Bean} 方式依赖注入，并注册 workerHolder 实例到 Spring 容器
      */
     @Bean
     public WorkerHolder workerHolder(Worker worker) {
