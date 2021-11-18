@@ -3,6 +3,7 @@ package com.jackhance.spring.ioc.dependency.injection.qualifier;
 import com.jackhance.spring.ioc.dependency.injection.model.Worker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.QualifierAnnotationAutowireCandidateResolver;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
@@ -14,6 +15,7 @@ import java.util.Collection;
  *
  * @author jackhance
  * @mail jackhance0825@163.com
+ * @see {@link QualifierAnnotationAutowireCandidateResolver#isAutowireCandidate}
  */
 public class QualifierInjectDemo {
 
@@ -35,10 +37,20 @@ public class QualifierInjectDemo {
     @Group
     public Collection<Worker> groupWorkers;
 
+    @Autowired
+    @SubGroup
+    public Collection<Worker> subGroupWorkers;
+
+    @Autowired
+    @GroupX
+    public Collection<Worker> groupXWorkers;
+
     /**
      * worker1、worker2
      * 逻辑分组 @Qualifier ： worker3、worker4
      * 自定义逻辑分组 @Group ： worker5 、 worker6
+     * 自定义逻辑分组 @SubGroup ： worker7 、 worker8
+     * 自定义逻辑分组 @GroupX ： worker9 、 worker10
      */
 
     @Bean
@@ -88,6 +100,42 @@ public class QualifierInjectDemo {
         return buildWorker("6", "jackhance", 30);
     }
 
+    /**
+     * 自定义逻辑分组
+     */
+    @Bean
+    @SubGroup
+    public Worker worker7() {
+        return buildWorker("7", "jackhance", 30);
+    }
+
+    /**
+     * 自定义逻辑分组
+     */
+    @Bean
+    @SubGroup
+    public Worker worker8() {
+        return buildWorker("8", "jackhance", 30);
+    }
+
+    /**
+     * 自定义逻辑分组
+     */
+    @Bean
+    @GroupX
+    public Worker worker9() {
+        return buildWorker("9", "jackhance", 30);
+    }
+
+    /**
+     * 自定义逻辑分组
+     */
+    @Bean
+    @GroupX
+    public Worker worker10() {
+        return buildWorker("10", "jackhance", 30);
+    }
+
     public Worker buildWorker(String id, String name, int age) {
         Worker worker = new Worker();
         worker.setId(id);
@@ -108,16 +156,20 @@ public class QualifierInjectDemo {
 
         QualifierInjectDemo demo = applicationContext.getBean(QualifierInjectDemo.class);
 
-        // 期待输出 worker2 Bean
+        // 输出 worker2 Bean
         System.out.println("demo.worker = " + demo.worker);
-        // 期待输出 worker4 Bean
+        // 输出 worker4 Bean
         System.out.println("demo.qualifierWorker = " + demo.qualifierWorker);
-        // 期待输出 worker1-6
+        // 输出 worker1-6
         System.out.println("demo.workers = " + demo.workers);
-        // 期待输出 worker3 worker4 worker5 worker6
+        // 输出 worker3 worker4 worker5 worker6
         System.out.println("demo.qualifiedUsers = " + demo.qualifierWorkers);
-        // 期待输出 worker5 worker6
+        // 输出 worker5 worker6 worker7 worker8
         System.out.println("demo.groupWorkers = " + demo.groupWorkers);
+        // 输出 worker5 worker6 worker7 worker8
+        System.out.println("demo.subGroupWorkers = " + demo.subGroupWorkers);
+        // 输出 worker9 worker10
+        System.out.println("demo.groupXWorkers = " + demo.groupXWorkers);
 
         // 关闭应用上下文
         applicationContext.close();
