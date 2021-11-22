@@ -22,6 +22,9 @@ public class ExternalSourceDemo {
     @Value("${usr.age:1}")
     private int age;
 
+    @Value("#{2 * 3 + 5}")
+    private int num;
+
     @Value("${usr.resource}")
     private Resource resource;
 
@@ -30,6 +33,9 @@ public class ExternalSourceDemo {
      */
     @Value("${usr.location:广州}")
     private String location;
+
+    @Value("${usr.version:#{100 * 3}}")
+    private int version;
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
@@ -44,8 +50,10 @@ public class ExternalSourceDemo {
 
         System.out.println("name : " + demo.name);
         System.out.println("age : " + demo.age);
+        System.out.println("num : " + demo.num);
         System.out.println("resource : " + demo.resource);
         System.out.println("location : " + demo.location);
+        System.out.println("version : " + demo.version);
 
         // 关闭应用上下文
         applicationContext.close();
