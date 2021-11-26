@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 默认 scope 为 singleton -->
+    <bean id="worker1" class="com.jackhance.spring.ioc.beanscope.model.Worker">
+        <constructor-arg name="id"  value="1" />
+        <constructor-arg name="name" value="jackhance"/>
+    </bean>
+
+    <bean id="worker2" class="com.jackhance.spring.ioc.beanscope.model.Worker" scope="singleton">
+        <constructor-arg name="id"  value="2" />
+        <constructor-arg name="name" value="jackhance"/>
+    </bean>
+
+</beans>

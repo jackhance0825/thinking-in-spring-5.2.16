@@ -18,6 +18,8 @@
         <module>ioc-container</module>
         <module>ioc-dependency-lookup</module>
         <module>ioc-dependency-injection</module>
+        <module>ioc-dependency-source</module>
+        <module>bean-scope</module>
     </modules>
 
     <!-- Spring 依赖管理 -->
@@ -89,6 +91,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webflux</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.26</version>
         </dependency>
     </dependencies>
 
