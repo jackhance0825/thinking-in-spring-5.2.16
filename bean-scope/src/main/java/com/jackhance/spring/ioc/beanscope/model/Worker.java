@@ -54,6 +54,7 @@ public class Worker implements InitializingBean, DisposableBean, BeanNameAware {
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("Worker Bean [" + beanName + "] hashCode = " + hashCode() + " 初始化中...");
+//         new RuntimeException().printStackTrace();
     }
 
     @Override

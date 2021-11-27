@@ -18,9 +18,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class WebConfiguration {
 
     @Bean
-//    @RequestScope
+    @RequestScope
 //    @SessionScope
-    @ApplicationScope
+//    @ApplicationScope
     public Worker worker() {
         return new Worker(1, "jackhance");
     }

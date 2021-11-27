@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
  *
  * @author jackhance
  * @mail jackhance0825@163.com
+ * @see org.springframework.web.context.request.RequestScope
+ * @see org.springframework.web.context.request.SessionScope
+ * @see org.springframework.web.context.support.ServletContextScope
+ * @see org.springframework.aop.scope.ScopedProxyFactoryBean
  */
 @Controller
 public class IndexController {
